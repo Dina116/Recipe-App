@@ -7,12 +7,10 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [User::class, FavoriteRecipe::class], version = 2, exportSchema = false)
+@Database(entities = [User::class, FavoriteRecipe::class], version = 4, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-
     abstract fun userDao(): UserDao
-
     abstract fun favoriteRecipeDao(): FavoriteRecipeDao
 
     companion object {
@@ -21,10 +19,29 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
-                val MIGRATION_1_2 = object : Migration(1, 2) {
+                val MIGRATION_2_4 = object : Migration(2, 4) {
                     override fun migrate(database: SupportSQLiteDatabase) {
+                        // Create a new table without the profile_picture_url column
+                        database.execSQL("""
+                            CREATE TABLE IF NOT EXISTS users_new (
+                                id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                email TEXT NOT NULL,
+                                username TEXT NOT NULL,
+                                hashedPassword TEXT NOT NULL
+                            )
+                        """.trimIndent())
 
-                        database.execSQL("ALTER TABLE users ADD COLUMN profile_picture_url TEXT")
+                        // Copy the data from the old table to the new table
+                        database.execSQL("""
+                            INSERT INTO users_new (id, email, username, hashedPassword)
+                            SELECT id, email, username, hashedPassword FROM users
+                        """.trimIndent())
+
+                        // Drop the old table
+                        database.execSQL("DROP TABLE IF EXISTS users")
+
+                        // Rename the new table to the old table name
+                        database.execSQL("ALTER TABLE users_new RENAME TO users")
                     }
                 }
 
@@ -32,13 +49,11 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).addMigrations(MIGRATION_1_2)
+                ).addMigrations(MIGRATION_2_4)
                     .build()
                 INSTANCE = instance
                 instance
             }
-
         }
-
     }
 }

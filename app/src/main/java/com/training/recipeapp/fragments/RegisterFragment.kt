@@ -51,6 +51,9 @@ class RegisterFragment : Fragment() {
             val email = emailEditText.editText?.text.toString()
             val username = usernameEditText.editText?.text.toString()
             val password = passwordEditText.editText?.text.toString()
+            if(email.isEmpty()||username.isEmpty()||password.isEmpty()){
+                Toast.makeText(requireContext(), "Error: All fields are required!!!!!!!!", Toast.LENGTH_SHORT).show() }
+            else{
             val hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt())
 
             val user = User(id=0,email = email, username = username, hashedPassword = hashedPassword)
@@ -69,7 +72,7 @@ class RegisterFragment : Fragment() {
 
 
             }
-        }
+        }}
 //        val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
 //        with(prefs.edit()) {
 //            putBoolean("isLoggedIn", true)
