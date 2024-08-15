@@ -14,15 +14,15 @@ interface UserDao {
    fun insert(user: User)
 
     @Query("SELECT * FROM users WHERE email = :email LIMIT 1" )
-  fun getUserByEmail(email: String):LiveData<User>
+  fun getUserByEmail(email: String):User?
 
 
 
     @Query("SELECT * FROM  users")
-     fun getAllUser():LiveData<List<User>>
+     fun getAllUser():Flow<List<User>>
 
 
 
 }
 
-//annotation class path(val value: String)
+

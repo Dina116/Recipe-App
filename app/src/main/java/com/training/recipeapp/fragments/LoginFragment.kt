@@ -41,12 +41,12 @@ class LoginFragment : Fragment() {
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         loginButton.setOnClickListener {
-            val email = userEmailEditText.editText.toString()
-            val password = passwordEditText.editText.toString()
+            val email = userEmailEditText.editText?.text.toString()
+            val password = passwordEditText.editText?.text.toString()
 
             lifecycleScope.launch {
                 val user = userViewModel.getUser(email)
-                if (user != null && BCrypt.checkpw(password, user.hashCode().toString())) {
+                if (user != null && BCrypt.checkpw(password, user.hashedPassword)) {
                     val prefs =
                         requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
                     with(prefs.edit()) {
@@ -72,7 +72,5 @@ class LoginFragment : Fragment() {
             }
         }
     }
-    private fun hashPassword(plainTextPassword: String): String {
-        return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt())
-    }
+
 }

@@ -65,29 +65,35 @@ dependencies {
 
 
     // Lifecycle components
-    implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation ("androidx.lifecycle:lifecycle-common-java8:2.2.0")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
+    implementation (libs.androidx.lifecycle.extensions)
+    implementation (libs.androidx.lifecycle.common.java8)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
 
     // Room
-    implementation ("androidx.room:room-runtime:2.5.0") // Update to a newer version
-    kapt ("androidx.room:room-compiler:2.5.0") // Update to a newer version
-    implementation ("androidx.room:room-ktx:2.5.0") // Update to a newer version
-    androidTestImplementation ("androidx.room:room-testing:2.5.0") // Update to a newer version
+    implementation (libs.androidx.room.runtime) // Update to a newer version
+    kapt (libs.androidx.room.compiler) // Update to a newer version
+    implementation (libs.androidx.room.ktx) // Update to a newer version
+    androidTestImplementation (libs.androidx.room.testing) // Update to a newer version
 
     // Kotlin
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10") // Update to a newer version
+    implementation (libs.kotlin.stdlib.jdk7) // Update to a newer version
 
     // Coroutines
-    api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0" )// Update to a newer version
-    api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0") // Update to a newer version
-    implementation ("org.mindrot:jbcrypt:0.4")
+    api (libs.kotlinx.coroutines.core )// Update to a newer version
+    api (libs.kotlinx.coroutines.android) // Update to a newer version
+    implementation (libs.jbcrypt)
 
 
-    implementation ("androidx.core:core-ktx:1.10.0" )// Use the latest version
-    implementation ("androidx.appcompat:appcompat:1.6.1") // Use the latest version
-    implementation ("com.google.android.material:material:1.9.0") // Use the latest version
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4" )// Use the latest version
+    implementation (libs.androidx.core.ktx.v1100 )// Use the latest version
+    implementation (libs.androidx.appcompat) // Use the latest version
+    implementation (libs.material) // Use the latest version
+    implementation (libs.androidx.constraintlayout )// Use the latest version
+
+
+
+
+
+
 
 
 

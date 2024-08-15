@@ -17,7 +17,9 @@
 <!--            android:exported="false" />-->
         <activity
             android:name=".AuthActivity"
+            android:launchMode="singleTop"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,5 +31,6 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
 </manifest>

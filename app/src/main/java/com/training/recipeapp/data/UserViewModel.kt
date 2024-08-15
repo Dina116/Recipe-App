@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
@@ -13,58 +14,24 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         AppDatabase.getDatabase(application).favoriteRecipeDao()
     )
 
-    val allUsers: LiveData<List<User>> = repository.allUsers
+    //val allUsers: Flow<List<User>> = repository.getAllUsers()
 
     fun insertUser(user: User) = viewModelScope.launch {
         repository.insertUser(user)
     }
 
-    suspend fun getUser(email: String): LiveData<User> {
+    suspend fun getUser(email: String): User? {
         return repository.getUserByEmail(email)
     }
 
-    fun insertRecipe(recipe: FavoriteRecipe) = viewModelScope.launch {
-        repository.insertRecipe(recipe)
+    suspend fun insertRecipe(recipe: FavoriteRecipe){
+       repository.insertRecipe(recipe)
     }
 
-    fun getFavoriteRecipes(): LiveData<List<FavoriteRecipe>> {
-        return repository.getAllFavorites()
-    }
+    fun getFavoriteRecipes(): Flow<List<FavoriteRecipe>> =repository.getAllFavorites()
 
-    fun deleteRecipe(recipe: FavoriteRecipe) = viewModelScope.launch {
-        repository.deleteRecipe(recipe)
-    }
+    suspend fun deleteRecipe(recipe: FavoriteRecipe) = run { repository.deleteRecipe(recipe) }
 
 
 
 }
-//    private val userDao = AppDatabase.getDatabase(application).userDao()
-//    private val recipeDao = AppDatabase.getDatabase(application).favoriteRecipeDao()
-//
-//    fun insertUser(user: User) {
-//        viewModelScope.launch {
-//            userDao.insert(user)
-//        }
-//    }
-//
-//    fun getUser(email: String) {
-//        viewModelScope.launch {
-//            val user = userDao.getUserByEmail(email)
-//            // Handle the retrieved user
-//        }
-//    }
-//
-//    fun insertRecipe(recipe: FavoriteRecipe) {
-//        viewModelScope.launch {
-//            recipeDao.insertRecipe(recipe)
-//        }
-//    }
-//
-//
-//
-//    fun getFavoriteRecipes() {
-//        viewModelScope.launch {
-//            val favoriteRecipes = recipeDao.getAllFavorites()
-//            // Handle the retrieved favorite recipes
-//        }
-//    }

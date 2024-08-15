@@ -3,24 +3,26 @@ package com.training.recipeapp.data
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 
 class UserRepository(private var  userDao: UserDao,private var recipeDao:FavoriteRecipeDao ) {
-    val allUsers: LiveData<List<User>> = userDao.getAllUser()
+   // val allUsers: LiveData<List<User>> = userDao.getAllUser()
+ fun getAllUsers(): Flow<List<User>> =userDao.getAllUser()
 
     suspend fun insertUser(user: User) {
         userDao.insert(user)
     }
 
-    suspend fun getUserByEmail(email: String): LiveData<User> {
-        return userDao.getUserByEmail(email)
+    suspend fun getUserByEmail(email: String): User? {
+        return withContext(Dispatchers.IO){ userDao.getUserByEmail(email)}
     }
 
     suspend fun insertRecipe(recipe: FavoriteRecipe) {
         recipeDao.insertRecipe(recipe)
     }
 
-    fun getAllFavorites(): LiveData<List<FavoriteRecipe>> {
+    fun getAllFavorites(): Flow<List<FavoriteRecipe>> {
         return recipeDao.getAllFavorites()
     }
 
@@ -30,10 +32,4 @@ class UserRepository(private var  userDao: UserDao,private var recipeDao:Favorit
 
 
 }
-//    private val db = Room.databaseBuilder(
-//        context.applicationContext,
-//        AppDatabase::class.java, "app_database"
-//    ).build()
 
-// private val userDao = db.userDao()
-//private val recipeDao=db.favoriteRecipeDao()

@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoriteRecipeDao {
@@ -12,9 +13,9 @@ interface FavoriteRecipeDao {
     fun insertRecipe(recipe: FavoriteRecipe)
 
     @Query("SELECT * FROM favorite_recipes")
-    fun getAllFavorites(): LiveData<List<FavoriteRecipe>>
+    fun getAllFavorites(): Flow<List<FavoriteRecipe>>
 
     @Delete
-   fun delete(recipe: FavoriteRecipe)
+   suspend fun delete(recipe: FavoriteRecipe)
 
 }
