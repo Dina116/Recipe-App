@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: UserRepository = UserRepository(
@@ -14,9 +15,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         AppDatabase.getDatabase(application).favoriteRecipeDao()
     )
 
-    //val allUsers: Flow<List<User>> = repository.getAllUsers()
 
-    fun insertUser(user: User) = viewModelScope.launch {
+
+    fun insertUser(user: User) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertUser(user)
     }
 
@@ -24,13 +25,14 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         return repository.getUserByEmail(email)
     }
 
-    suspend fun insertRecipe(recipe: FavoriteRecipe){
+    suspend fun insertRecipe(recipe: FavoriteRecipe)= withContext(Dispatchers.IO){
        repository.insertRecipe(recipe)
     }
 
-    fun getFavoriteRecipes(): Flow<List<FavoriteRecipe>> =repository.getAllFavorites()
+    fun getFavoriteRecipes(): LiveData<List<FavoriteRecipe>> =repository.getAllFavorites()
 
-    suspend fun deleteRecipe(recipe: FavoriteRecipe) = run { repository.deleteRecipe(recipe) }
+    suspend fun deleteRecipe(recipe: FavoriteRecipe) = withContext(Dispatchers.IO){
+        repository.deleteRecipe(recipe) }
 
 
 

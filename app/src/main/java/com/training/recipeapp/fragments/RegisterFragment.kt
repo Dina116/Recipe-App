@@ -2,12 +2,14 @@ package com.training.recipeapp.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -16,8 +18,11 @@ import com.training.recipeapp.R
 import com.training.recipeapp.data.User
 import com.training.recipeapp.data.UserRepository
 import com.training.recipeapp.data.UserViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.mindrot.jbcrypt.BCrypt
 
 class RegisterFragment : Fragment() {
@@ -52,16 +57,24 @@ class RegisterFragment : Fragment() {
 
             //ViewModelScope dose not play with me
 
-          GlobalScope.launch {
-                userViewModel.insertUser(user)
-                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+         lifecycleScope.launch {
+             withContext(Dispatchers.IO){
+                 userViewModel.insertUser(user)
+             }
+                withContext(Dispatchers.Main){
+                    findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
+                    Toast.makeText(requireContext(), "User registered successfully!", Toast.LENGTH_SHORT).show()
+                }
+
+
+
             }
         }
-        val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-        with(prefs.edit()) {
-            putBoolean("isLoggedIn", true)
-            apply()
-        }
+//        val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+//        with(prefs.edit()) {
+//            putBoolean("isLoggedIn", true)
+//            apply()
+//        }
 
     }
 

@@ -19,7 +19,7 @@ interface UserDao {
 
 
     @Query("SELECT * FROM  users")
-     fun getAllUser():Flow<List<User>>
+     fun getAllUser():LiveData<List<User>>
 
 
 

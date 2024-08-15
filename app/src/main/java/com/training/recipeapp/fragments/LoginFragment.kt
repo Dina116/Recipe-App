@@ -45,6 +45,10 @@ class LoginFragment : Fragment() {
             val password = passwordEditText.editText?.text.toString()
 
             lifecycleScope.launch {
+
+                noAccountTextView.setOnClickListener {
+                    findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+                }
                 val user = userViewModel.getUser(email)
                 if (user != null && BCrypt.checkpw(password, user.hashedPassword)) {
                     val prefs =
@@ -65,9 +69,7 @@ class LoginFragment : Fragment() {
                 }
 
 
-                noAccountTextView.setOnClickListener {
-                    findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-                }
+
 
             }
         }

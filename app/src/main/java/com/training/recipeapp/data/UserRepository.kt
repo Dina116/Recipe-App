@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 
 class UserRepository(private var  userDao: UserDao,private var recipeDao:FavoriteRecipeDao ) {
    // val allUsers: LiveData<List<User>> = userDao.getAllUser()
- fun getAllUsers(): Flow<List<User>> =userDao.getAllUser()
+ fun getAllUsers(): LiveData<List<User>> =userDao.getAllUser()
 
     suspend fun insertUser(user: User) {
         userDao.insert(user)
@@ -22,7 +22,7 @@ class UserRepository(private var  userDao: UserDao,private var recipeDao:Favorit
         recipeDao.insertRecipe(recipe)
     }
 
-    fun getAllFavorites(): Flow<List<FavoriteRecipe>> {
+    fun getAllFavorites(): LiveData<List<FavoriteRecipe>> {
         return recipeDao.getAllFavorites()
     }
 

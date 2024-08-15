@@ -13,7 +13,7 @@ interface FavoriteRecipeDao {
     fun insertRecipe(recipe: FavoriteRecipe)
 
     @Query("SELECT * FROM favorite_recipes")
-    fun getAllFavorites(): Flow<List<FavoriteRecipe>>
+    fun getAllFavorites(): LiveData<List<FavoriteRecipe>>
 
     @Delete
    suspend fun delete(recipe: FavoriteRecipe)

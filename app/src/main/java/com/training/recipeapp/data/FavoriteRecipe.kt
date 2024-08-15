@@ -9,7 +9,9 @@ import java.io.Serializable
 data class FavoriteRecipe(
     @PrimaryKey(autoGenerate = true) var id: Int,
    @ColumnInfo(name = "title") var title: String,
-   @ColumnInfo(name = "image_url") var imageUrl: String
+   @ColumnInfo(name = "image_url") var imageUrl: String,
+    @ColumnInfo(name = "account_name") var accountName: String
+
 ):Serializable{
-    constructor():this(0,"","")
+    constructor():this(0,"","","")
 }
