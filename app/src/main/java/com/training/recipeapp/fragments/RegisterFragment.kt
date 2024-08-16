@@ -52,7 +52,7 @@ class RegisterFragment : Fragment() {
             val username = usernameEditText.editText?.text.toString()
             val password = passwordEditText.editText?.text.toString()
             if(email.isEmpty()||username.isEmpty()||password.isEmpty()){
-                Toast.makeText(requireContext(), "Error: All fields are required!!!!!!!!", Toast.LENGTH_SHORT).show() }
+                Toast.makeText(requireContext(), "Error: All fields are required!!!", Toast.LENGTH_SHORT).show() }
             else{
             val hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt())
 
@@ -65,7 +65,7 @@ class RegisterFragment : Fragment() {
                  userViewModel.insertUser(user)
              }
                 withContext(Dispatchers.Main){
-                    findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                     Toast.makeText(requireContext(), "User registered successfully!", Toast.LENGTH_SHORT).show()
                 }
 

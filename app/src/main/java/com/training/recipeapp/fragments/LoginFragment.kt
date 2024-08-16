@@ -62,7 +62,7 @@ class LoginFragment : Fragment() {
                     requireActivity().runOnUiThread {
                         Toast.makeText(
                             requireContext(),
-                            "Invalid email or password",
+                            "Invalid email or password,Please Sign UP First or Try Again",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
