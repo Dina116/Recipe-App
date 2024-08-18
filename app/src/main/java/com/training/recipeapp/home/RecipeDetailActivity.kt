@@ -1,6 +1,7 @@
 package com.training.recipeapp.home
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,8 @@ class RecipeDetailActivity : AppCompatActivity() {
     private lateinit var recipeNameTextView: TextView
     private lateinit var recipeInstructionsTextView: TextView
 
+    private var isInstructionsVisible = false // Flag to keep track of visibility
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_detail)
@@ -37,6 +40,11 @@ class RecipeDetailActivity : AppCompatActivity() {
 
         val recipeId = intent.getStringExtra("RECIPE_ID") ?: return
         fetchRecipeById(recipeId)
+
+        // Set up click listener for recipe name
+        recipeNameTextView.setOnClickListener {
+            toggleInstructionsVisibility()
+        }
     }
 
     private fun fetchRecipeById(id: String) {
@@ -51,6 +59,7 @@ class RecipeDetailActivity : AppCompatActivity() {
                         recipeNameTextView.text = it.strMeal
                         recipeInstructionsTextView.text = it.strInstructions ?: "No instructions available"
                         recipeImageView.load(it.strMealThumb)
+                        recipeInstructionsTextView.visibility = View.GONE // Hide instructions initially
                     }
                 } else {
                     // Handle unsuccessful response
@@ -61,5 +70,14 @@ class RecipeDetailActivity : AppCompatActivity() {
                 // Handle failure
             }
         })
+    }
+
+    private fun toggleInstructionsVisibility() {
+        isInstructionsVisible = !isInstructionsVisible
+        recipeInstructionsTextView.visibility = if (isInstructionsVisible) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
     }
 }

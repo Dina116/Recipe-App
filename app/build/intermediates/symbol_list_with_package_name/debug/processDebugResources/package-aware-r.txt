@@ -3215,7 +3215,7 @@ id action_container
 id action_context_bar
 id action_divider
 id action_image
-id action_loginFragment_to_homeFragment
+id action_loginFragment_to_mainActivity
 id action_loginFragment_to_registerFragment
 id action_menu_divider
 id action_menu_presenter
@@ -3223,8 +3223,8 @@ id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
 id action_registerFragment_to_loginFragment
-id action_splashFragment_to_homeFragment
 id action_splashFragment_to_loginFragment
+id action_splashFragment_to_mainActivity
 id action_text
 id actions
 id activity_chooser_view_content
@@ -3394,7 +3394,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageViewRecipe
 id immediateStop
 id included
 id indeterminate
@@ -3420,10 +3419,11 @@ id list_item
 id locale
 id login
 id loginFragment
-id login_fragment_container
+id logo
 id ltr
 id m3_side_sheet
 id main
+id mainActivity
 id marquee
 id masked
 id match_constraint
@@ -3657,7 +3657,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textViewRecipeName
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3687,6 +3686,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_cookbook
 id tv_register
 id tv_signin
 id tv_to
@@ -3832,7 +3832,6 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_login
 layout activity_main
-layout activity_main_view_model
 layout activity_recipe_detail
 layout activity_splash
 layout custom_dialog
@@ -3854,7 +3853,6 @@ layout design_text_input_start_icon
 layout fragment_favorites
 layout fragment_home
 layout fragment_login
-layout fragment_recipe_detail
 layout fragment_register
 layout fragment_splash
 layout ime_base_split_test_activity
@@ -4407,12 +4405,12 @@ style Base_Widget_MaterialComponents_Snackbar
 style Base_Widget_MaterialComponents_TextInputEditText
 style Base_Widget_MaterialComponents_TextInputLayout
 style Base_Widget_MaterialComponents_TextView
-style BottomNavigationViewTextAppearance
 style CardView
 style CardView_Dark
 style CardView_Light
 style CustomBottomNavigationView
 style CustomTextStyle
+style CustomToolbarStyle
 style DialogWindowTheme
 style FloatingDialogTheme
 style FloatingDialogWindowTheme
@@ -4870,7 +4868,6 @@ style ThemeOverlay_MaterialComponents_TimePicker_Display_TextInputEditText
 style ThemeOverlay_MaterialComponents_Toolbar_Popup_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
-style ToolbarStyle
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar

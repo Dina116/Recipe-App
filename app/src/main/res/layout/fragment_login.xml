@@ -4,45 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@drawable/gradient_background">
 
     <TextView
-        android:layout_marginTop="50dp"
         android:id="@+id/tv_signin"
-        style="@style/CustomTextStyle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="Sign In"
-        app:layout_constraintTop_toTopOf="parent" />
+        style="@style/CustomTextStyle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        app:layout_constraintEnd_toEndOf="@id/tv_signin"
-        app:layout_constraintStart_toStartOf="@id/tv_signin"
-        android:src="@drawable/logo"
+        android:id="@+id/logo"
         android:layout_width="160dp"
         android:layout_height="160dp"
+        android:src="@drawable/logo"
         app:layout_constraintTop_toBottomOf="@id/tv_signin"
-         />
+        app:layout_constraintStart_toStartOf="@id/tv_signin"
+        app:layout_constraintEnd_toEndOf="@id/tv_signin" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_user_name"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_signin">
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/logo">
 
         <com.google.android.material.textfield.TextInputEditText
-            style="@style/CustomTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your email"
             android:inputType="textEmailAddress"
-            android:textSize="18sp" />
-
-
+            android:textSize="18sp"
+            style="@style/CustomTextStyle" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -53,42 +51,37 @@
         app:layout_constraintTop_toBottomOf="@id/et_user_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            style="@style/CustomTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your password"
             android:inputType="numberPassword"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            style="@style/CustomTextStyle" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/no_account"
-        style="@style/CustomTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="Don`t have an account ? "
+        android:layout_marginTop="20dp"
+        android:text="Don’t have an account?"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/et_password"
+        style="@style/CustomTextStyle"
         app:layout_constraintStart_toStartOf="@id/et_password"
+        app:layout_constraintEnd_toEndOf="@id/et_password"
         app:layout_constraintTop_toBottomOf="@id/et_password" />
 
     <com.google.android.material.button.MaterialButton
-
         android:id="@+id/login"
-
-        style="@style/CustomTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/white"
         android:gravity="center"
         android:text="Login"
+        style="@style/CustomTextStyle"
         app:layout_constraintStart_toStartOf="@id/no_account"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/no_account" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-

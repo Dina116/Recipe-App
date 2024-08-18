@@ -9,7 +9,7 @@ public class LoginFragmentDirections private constructor() {
     public fun actionLoginFragmentToRegisterFragment(): NavDirections =
         ActionOnlyNavDirections(R.id.action_loginFragment_to_registerFragment)
 
-    public fun actionLoginFragmentToHomeFragment(): NavDirections =
-        ActionOnlyNavDirections(R.id.action_loginFragment_to_homeFragment)
+    public fun actionLoginFragmentToMainActivity(): NavDirections =
+        ActionOnlyNavDirections(R.id.action_loginFragment_to_mainActivity)
   }
 }

@@ -8,14 +8,17 @@
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        app:title="Cook Book"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#E9B261"
-        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:titleTextColor="@android:color/black"
         app:subtitleTextColor="@android:color/black"
         app:iconTint="@android:color/black"
-        android:theme="@style/ToolbarStyle" />
+        app:titleTextAppearance="@style/CustomToolbarStyle" />
+
+
+    <!-- RelativeLayout لمركزية النص -->
 
     <!-- Fragment Container -->
     <androidx.fragment.app.FragmentContainerView
@@ -36,6 +39,8 @@
         android:background="#E9B261"
         app:menu="@menu/bottom_nav_menu"
         style="@style/CustomBottomNavigationView"
-        app:itemTextAppearance="@style/BottomNavigationViewTextAppearance" />
+        app:itemTextAppearance="@style/CustomBottomNavigationView"/>
+
+
 
 </RelativeLayout>

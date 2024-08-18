@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -15,7 +14,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.training.recipeapp.R
-import com.training.recipeapp.data.UserRepository
 import com.training.recipeapp.data.UserViewModel
 import kotlinx.coroutines.launch
 import org.mindrot.jbcrypt.BCrypt
@@ -40,15 +38,16 @@ class LoginFragment : Fragment() {
         val loginButton = view.findViewById<Button>(R.id.login)
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
+        // Handle navigation to RegisterFragment when noAccountTextView is clicked
+        noAccountTextView.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+
         loginButton.setOnClickListener {
             val email = userEmailEditText.editText?.text.toString()
             val password = passwordEditText.editText?.text.toString()
 
             lifecycleScope.launch {
-
-                noAccountTextView.setOnClickListener {
-                    findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-                }
                 val user = userViewModel.getUser(email)
                 if (user != null && BCrypt.checkpw(password, user.hashedPassword)) {
                     val prefs =
@@ -57,22 +56,17 @@ class LoginFragment : Fragment() {
                         putBoolean("isLoggedIn", true)
                         apply()
                     }
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_mainActivity)
                 } else {
                     requireActivity().runOnUiThread {
                         Toast.makeText(
                             requireContext(),
-                            "Invalid email or password,Please Sign UP First or Try Again",
+                            "Invalid email or password, Please Sign Up First or Try Again",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
-
-
-
-
             }
         }
     }
-
 }

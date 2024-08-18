@@ -2,18 +2,24 @@ package com.training.recipeapp
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
+import android.graphics.Paint
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.TextPaint
+import android.text.style.TypefaceSpan
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.training.recipeapp.data.UserViewModel
-import com.training.recipeapp.fragments.LoginFragment
 import com.training.recipeapp.home.FavoritesFragment
 import com.training.recipeapp.home.HomeFragment
 import kotlinx.coroutines.CoroutineScope
@@ -36,6 +42,14 @@ class MainActivity : AppCompatActivity() {
         // Set up the toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        // Apply custom font to toolbar title
+        val typeface = ResourcesCompat.getFont(this, R.font.aladin) // Update to your font resource
+        typeface?.let {
+            toolbar.title = SpannableString(toolbar.title).apply {
+                setSpan(CustomTypefaceSpan("", it), 0, length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+            }
+        }
 
         // Set up BottomNavigationView
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
@@ -77,6 +91,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
+        menu?.let { applyFontToMenuItem(it) }
         return true
     }
 
@@ -102,10 +117,9 @@ class MainActivity : AppCompatActivity() {
         clearUserData()
 
         // Create an Intent to start LoginActivity
-        val intent = Intent(this, LoginActivity::class.java)
-
-        // Clear the activity stack and start LoginActivity
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        val intent = Intent(this, LoginActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
 
         // Start LoginActivity
         startActivity(intent)
@@ -125,6 +139,45 @@ class MainActivity : AppCompatActivity() {
                 clear()
                 apply()
             }
+        }
+    }
+
+    private fun applyFontToMenuItem(menu: Menu) {
+        for (i in 0 until menu.size()) {
+            val menuItem = menu.getItem(i)
+            val spannableTitle = SpannableString(menuItem.title)
+            val typeface = ResourcesCompat.getFont(this, R.font.aladin) // Update to your font resource
+            typeface?.let {
+                spannableTitle.setSpan(CustomTypefaceSpan("", it), 0, spannableTitle.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+            }
+            menuItem.title = spannableTitle
+        }
+    }
+
+    private class CustomTypefaceSpan(family: String, private val newType: Typeface) : TypefaceSpan(family) {
+        override fun updateDrawState(ds: TextPaint) {
+            applyCustomTypeFace(ds, newType)
+        }
+
+        override fun updateMeasureState(paint: TextPaint) {
+            applyCustomTypeFace(paint, newType)
+        }
+
+        private fun applyCustomTypeFace(paint: Paint, tf: Typeface) {
+            val oldStyle: Int
+            val old = paint.typeface
+            oldStyle = old?.style ?: 0
+
+            val fake = oldStyle and tf.style.inv()
+            if (fake and Typeface.BOLD != 0) {
+                paint.isFakeBoldText = true
+            }
+
+            if (fake and Typeface.ITALIC != 0) {
+                paint.textSkewX = -0.25f
+            }
+
+            paint.typeface = tf
         }
     }
 }

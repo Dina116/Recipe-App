@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/recipeImageView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/recipeNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeImageView"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:paddingTop="16dp" />
+        <ImageView
+            android:id="@+id/recipeImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/recipeInstructionsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeNameTextView"
-        android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/recipeNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recipeImageView"
+            android:textSize="24sp"
+            style="@style/CustomTextStyle"
+            android:paddingTop="16dp" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/recipeInstructionsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recipeNameTextView"
+            android:paddingTop="8dp"
+            android:textSize="20sp"
+            style="@style/CustomTextStyle"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</ScrollView>

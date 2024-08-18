@@ -9,7 +9,7 @@ public class SplashFragmentDirections private constructor() {
     public fun actionSplashFragmentToLoginFragment(): NavDirections =
         ActionOnlyNavDirections(R.id.action_splashFragment_to_loginFragment)
 
-    public fun actionSplashFragmentToHomeFragment(): NavDirections =
-        ActionOnlyNavDirections(R.id.action_splashFragment_to_homeFragment)
+    public fun actionSplashFragmentToMainActivity(): NavDirections =
+        ActionOnlyNavDirections(R.id.action_splashFragment_to_mainActivity)
   }
 }
