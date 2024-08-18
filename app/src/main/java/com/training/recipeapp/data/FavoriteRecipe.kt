@@ -14,7 +14,6 @@ data class FavoriteRecipe(
     @ColumnInfo(name = "ingredients") var ingredients: String,
 
 
-
 ):Serializable{
     constructor():this(0,"","","","")
 }

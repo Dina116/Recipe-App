@@ -4,7 +4,7 @@ plugins {
     id ("kotlin-kapt")
     id("kotlin-android")
     id ("androidx.navigation.safeargs.kotlin")
-
+    id("kotlin-parcelize")
 
 
 
@@ -40,6 +40,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -55,8 +58,26 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    val lifecycle_version = "2.6.0"
+    val arch_version = "2.1.0"
 
+// ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+// ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+// LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+// Lifecycles only (without ViewModel or LiveData)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
 
+// Saved state module for ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+
+// Annotation processor
+    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     // Navigation Component
     implementation ("androidx.navigation:navigation-fragment-ktx:2.7.0")
@@ -88,6 +109,17 @@ dependencies {
     implementation (libs.androidx.appcompat) // Use the latest version
     implementation (libs.material) // Use the latest version
     implementation (libs.androidx.constraintlayout )// Use the latest version
+
+// retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+
+// gson
+    implementation ("com.google.code.gson:gson:2.10.1")
+
+// glide
+    implementation ("com.github.bumptech.glide:glide:4.15.0")
 
 
 

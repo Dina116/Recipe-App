@@ -2,4 +2,10 @@
     <string name="app_name">Recipe App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cook_app">Cook App</string>
+    <string name="recipe_app">Recipe App</string>
+    <string name="singout">SingOut</string>
+    <string name="creator">Creator</string>
+    <string name="menu">menu</string>
+    <string name="looking_for_ricpe">Looking For Ricpe?</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.training.recipeapp.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.training.recipeapp.R
+import com.training.recipeapp.RecipeActivity
 import com.training.recipeapp.data.UserRepository
 import com.training.recipeapp.data.UserViewModel
 import kotlinx.coroutines.launch
@@ -39,16 +41,16 @@ class LoginFragment : Fragment() {
         val noAccountTextView = view.findViewById<TextView>(R.id.no_account)
         val loginButton = view.findViewById<Button>(R.id.login)
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-
+        noAccountTextView.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
         loginButton.setOnClickListener {
             val email = userEmailEditText.editText?.text.toString()
             val password = passwordEditText.editText?.text.toString()
 
             lifecycleScope.launch {
 
-                noAccountTextView.setOnClickListener {
-                    findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-                }
+
                 val user = userViewModel.getUser(email)
                 if (user != null && BCrypt.checkpw(password, user.hashedPassword)) {
                     val prefs =
@@ -57,7 +59,7 @@ class LoginFragment : Fragment() {
                         putBoolean("isLoggedIn", true)
                         apply()
                     }
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    startActivity()
                 } else {
                     requireActivity().runOnUiThread {
                         Toast.makeText(
@@ -68,11 +70,14 @@ class LoginFragment : Fragment() {
                     }
                 }
 
-
-
-
             }
         }
     }
-
+    fun startActivity() {
+        if (isAdded) { // Ensure fragment is attached
+            val intent = Intent(requireContext(), RecipeActivity::class.java)
+            requireActivity().finish()
+            startActivity(intent)
+        }
+    }
 }
