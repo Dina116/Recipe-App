@@ -20,9 +20,9 @@ abstract class AppDatabase : RoomDatabase() {
         fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 val MIGRATION_2_4 = object : Migration(2, 4) {
-                    override fun migrate(database: SupportSQLiteDatabase) {
+                    override fun migrate(db: SupportSQLiteDatabase) {
                         // Create a new table without the profile_picture_url column
-                        database.execSQL("""
+                        db.execSQL("""
                             CREATE TABLE IF NOT EXISTS users_new (
                                 id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                 email TEXT NOT NULL,
@@ -32,16 +32,16 @@ abstract class AppDatabase : RoomDatabase() {
                         """.trimIndent())
 
                         // Copy the data from the old table to the new table
-                        database.execSQL("""
+                        db.execSQL("""
                             INSERT INTO users_new (id, email, username, hashedPassword)
                             SELECT id, email, username, hashedPassword FROM users
                         """.trimIndent())
 
                         // Drop the old table
-                        database.execSQL("DROP TABLE IF EXISTS users")
+                        db.execSQL("DROP TABLE IF EXISTS users")
 
                         // Rename the new table to the old table name
-                        database.execSQL("ALTER TABLE users_new RENAME TO users")
+                        db.execSQL("ALTER TABLE users_new RENAME TO users")
                     }
                 }
 

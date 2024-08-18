@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 
 class UserRepository(private var  userDao: UserDao,private var recipeDao:FavoriteRecipeDao ) {
-   // val allUsers: LiveData<List<User>> = userDao.getAllUser()
- fun getAllUsers(): LiveData<List<User>> =userDao.getAllUser()
+    // val allUsers: LiveData<List<User>> = userDao.getAllUser()
+    fun getAllUsers(): LiveData<List<User>> =userDao.getAllUser()
 
     suspend fun insertUser(user: User) {
         userDao.insert(user)
@@ -29,7 +29,12 @@ class UserRepository(private var  userDao: UserDao,private var recipeDao:Favorit
     suspend fun deleteRecipe(recipe: FavoriteRecipe) {
         recipeDao.delete(recipe)
     }
-
+    // Add this function to clear all users from the database
+    suspend fun clearAllUsers() {
+        withContext(Dispatchers.IO) {
+            userDao.clearAllUsers()
+        }
+    }
 
 }
 

@@ -1,0 +1,180 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.training.recipeapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <permission
+13-->[androidx.core:core:1.13.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\4e8c8561f9842321bf6fbf03e09a47f9\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+14        android:name="com.training.recipeapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.13.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\4e8c8561f9842321bf6fbf03e09a47f9\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.13.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\4e8c8561f9842321bf6fbf03e09a47f9\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+16
+17    <uses-permission android:name="com.training.recipeapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.13.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\4e8c8561f9842321bf6fbf03e09a47f9\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.13.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\4e8c8561f9842321bf6fbf03e09a47f9\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:7:5-39:19
+20        android:allowBackup="true"
+20-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:8:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.13.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\4e8c8561f9842321bf6fbf03e09a47f9\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+22        android:dataExtractionRules="@xml/data_extraction_rules"
+22-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:9:9-65
+23        android:debuggable="true"
+24        android:extractNativeLibs="false"
+25        android:fullBackupContent="@xml/backup_rules"
+25-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:10:9-54
+26        android:icon="@mipmap/ic_launcher"
+26-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:11:9-43
+27        android:label=""
+27-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:12:9-25
+28        android:roundIcon="@mipmap/ic_launcher_round"
+28-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:13:9-54
+29        android:supportsRtl="true"
+29-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:14:9-35
+30        android:testOnly="true"
+31        android:theme="@style/Theme.RecipeApp" >
+31-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:15:9-47
+32        <activity
+32-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:17:9-25:20
+33            android:name="com.training.recipeapp.SplashActivity"
+33-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:18:13-43
+34            android:exported="true" >
+34-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:19:13-36
+35            <intent-filter>
+35-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:20:13-24:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:21:17-69
+36-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:21:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:23:17-77
+38-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:23:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity
+41-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:26:9-28:39
+42            android:name="com.training.recipeapp.LoginActivity"
+42-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:27:13-42
+43            android:exported="true" />
+43-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:28:13-36
+44        <activity
+44-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:29:9-32:46
+45            android:name="com.training.recipeapp.MainActivity"
+45-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:30:13-41
+46            android:exported="false"
+46-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:31:13-37
+47            android:launchMode="singleTop" />
+47-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:32:13-43
+48        <activity android:name="com.training.recipeapp.home.RecipeDetailActivity" />
+48-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:34:9-63
+48-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:34:19-60
+49
+50        <meta-data
+50-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:36:9-38:57
+51            android:name="preloaded_fonts"
+51-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:37:13-43
+52            android:resource="@array/preloaded_fonts" />
+52-->C:\Users\EL RAEED  A1\AndroidStudioProjects\Recipe-App\app\src\main\AndroidManifest.xml:38:13-54
+53
+54        <provider
+54-->[androidx.emoji2:emoji2:1.3.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\0c0a0b49366667888771f88da6ee77ad\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+55            android:name="androidx.startup.InitializationProvider"
+55-->[androidx.emoji2:emoji2:1.3.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\0c0a0b49366667888771f88da6ee77ad\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+56            android:authorities="com.training.recipeapp.androidx-startup"
+56-->[androidx.emoji2:emoji2:1.3.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\0c0a0b49366667888771f88da6ee77ad\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+57            android:exported="false" >
+57-->[androidx.emoji2:emoji2:1.3.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\0c0a0b49366667888771f88da6ee77ad\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+58            <meta-data
+58-->[androidx.emoji2:emoji2:1.3.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\0c0a0b49366667888771f88da6ee77ad\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+59                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+59-->[androidx.emoji2:emoji2:1.3.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\0c0a0b49366667888771f88da6ee77ad\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+60                android:value="androidx.startup" />
+60-->[androidx.emoji2:emoji2:1.3.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\0c0a0b49366667888771f88da6ee77ad\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+61            <meta-data
+61-->[androidx.lifecycle:lifecycle-process:2.8.4] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\17b12fdf274f0cb8b29f1102975eacde\transformed\lifecycle-process-2.8.4\AndroidManifest.xml:29:13-31:52
+62                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+62-->[androidx.lifecycle:lifecycle-process:2.8.4] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\17b12fdf274f0cb8b29f1102975eacde\transformed\lifecycle-process-2.8.4\AndroidManifest.xml:30:17-78
+63                android:value="androidx.startup" />
+63-->[androidx.lifecycle:lifecycle-process:2.8.4] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\17b12fdf274f0cb8b29f1102975eacde\transformed\lifecycle-process-2.8.4\AndroidManifest.xml:31:17-49
+64            <meta-data
+64-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+65-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+66                android:value="androidx.startup" />
+66-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+67        </provider>
+68
+69        <uses-library
+69-->[androidx.window:window:1.0.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\88eec14a44f4437eff7d7db114d99f9a\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+70            android:name="androidx.window.extensions"
+70-->[androidx.window:window:1.0.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\88eec14a44f4437eff7d7db114d99f9a\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+71            android:required="false" />
+71-->[androidx.window:window:1.0.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\88eec14a44f4437eff7d7db114d99f9a\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+72        <uses-library
+72-->[androidx.window:window:1.0.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\88eec14a44f4437eff7d7db114d99f9a\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+73            android:name="androidx.window.sidecar"
+73-->[androidx.window:window:1.0.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\88eec14a44f4437eff7d7db114d99f9a\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+74            android:required="false" />
+74-->[androidx.window:window:1.0.0] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\88eec14a44f4437eff7d7db114d99f9a\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+75
+76        <service
+76-->[androidx.room:room-runtime:2.6.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\ce83674b3ac5dc55284e98d71900647b\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+77            android:name="androidx.room.MultiInstanceInvalidationService"
+77-->[androidx.room:room-runtime:2.6.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\ce83674b3ac5dc55284e98d71900647b\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+78            android:directBootAware="true"
+78-->[androidx.room:room-runtime:2.6.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\ce83674b3ac5dc55284e98d71900647b\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+79            android:exported="false" />
+79-->[androidx.room:room-runtime:2.6.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\ce83674b3ac5dc55284e98d71900647b\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+80
+81        <receiver
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+82            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+83            android:directBootAware="false"
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+84            android:enabled="true"
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+85            android:exported="true"
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+86            android:permission="android.permission.DUMP" >
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+88                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+91                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+92            </intent-filter>
+93            <intent-filter>
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+94                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+95            </intent-filter>
+96            <intent-filter>
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+97                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\EL RAEED  A1\.gradle\caches\transforms-4\49f95bf3ff084639e70fe28e375439ac\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+98            </intent-filter>
+99        </receiver>
+100    </application>
+101
+102</manifest>

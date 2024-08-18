@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="CustomTextStyle">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/black</item>
@@ -10,4 +11,23 @@
     </style>
 
 
+
+
+        <style name="ToolbarStyle" parent="Widget.AppCompat.Toolbar">
+            <item name="android:titleTextColor">@color/black</item>
+            <item name="android:subtitleTextColor">@color/black</item>
+        </style>
+
+        <style name="CustomBottomNavigationView" parent="Widget.Design.BottomNavigationView">
+            <item name="itemIconSize">24dp</item>
+            <item name="itemTextAppearance">@style/BottomNavigationViewTextAppearance</item>
+        </style>
+
+        <style name="BottomNavigationViewTextAppearance">
+            <item name="android:textSize">12sp</item>
+            <item name="android:paddingTop">4dp</item>
+        </style>
+
 </resources>
+
+

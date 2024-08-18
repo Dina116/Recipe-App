@@ -16,6 +16,6 @@ interface FavoriteRecipeDao {
     fun getAllFavorites(): LiveData<List<FavoriteRecipe>>
 
     @Delete
-   suspend fun delete(recipe: FavoriteRecipe)
+    suspend fun delete(recipe: FavoriteRecipe)
 
 }

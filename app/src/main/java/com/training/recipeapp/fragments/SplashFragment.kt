@@ -1,54 +1,21 @@
 package com.training.recipeapp.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.training.recipeapp.R
 
-
-class SplashFragment : Fragment() {
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        return inflater.inflate(R.layout.fragment_splash, container, false)
-    }
+class SplashFragment : Fragment(R.layout.fragment_splash) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // تأخير لمدة 4 ثوانٍ ثم الانتقال إلى الشاشة الرئيسية
         Handler(Looper.getMainLooper()).postDelayed({
-
-            //val pref = requireActivity().getSharedPreferences("app_pref", Context.MODE_PRIVATE)
-            val isLoggedIn = checkLoginStatus()
-
-
-            val navController = findNavController()
-
-
-                if (isLoggedIn) {
-                    navController.navigate(R.id.action_splashFragment_to_homeFragment)
-                } else {
-                    navController.navigate(R.id.action_splashFragment_to_loginFragment)
-                }
-
-
-
-
-
-            }, 2000)
-        }
-    private fun checkLoginStatus(): Boolean {
-        val sharedPreferences = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-        return sharedPreferences.getBoolean("isLoggedIn", false)
+            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+        }, 4000) // تأخير 4 ثوانٍ (4000 مللي ثانية)
     }
-    }
+}

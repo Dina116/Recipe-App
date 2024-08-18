@@ -26,7 +26,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     suspend fun insertRecipe(recipe: FavoriteRecipe)= withContext(Dispatchers.IO){
-       repository.insertRecipe(recipe)
+        repository.insertRecipe(recipe)
     }
 
     fun getFavoriteRecipes(): LiveData<List<FavoriteRecipe>> =repository.getAllFavorites()
@@ -35,5 +35,8 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         repository.deleteRecipe(recipe) }
 
 
-
+    // Add this function to clear all users from the database
+    fun clearAllUsers() = viewModelScope.launch(Dispatchers.IO) {
+        repository.clearAllUsers()
+    }
 }

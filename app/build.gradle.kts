@@ -54,43 +54,48 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-
-
-
-    // Navigation Component
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.0")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.7.0")
-
-
-
-    // Lifecycle components
+    implementation (libs.androidx.navigation.fragment.ktx.v270)
+    implementation (libs.androidx.navigation.ui.ktx.v270)
     implementation (libs.androidx.lifecycle.extensions)
     implementation (libs.androidx.lifecycle.common.java8)
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
-
-    // Room
     implementation (libs.androidx.room.runtime) // Update to a newer version
     kapt (libs.androidx.room.compiler) // Update to a newer version
     implementation (libs.androidx.room.ktx) // Update to a newer version
     androidTestImplementation (libs.androidx.room.testing) // Update to a newer version
-
-    // Kotlin
     implementation (libs.kotlin.stdlib.jdk7) // Update to a newer version
-
-    // Coroutines
     api (libs.kotlinx.coroutines.core )// Update to a newer version
     api (libs.kotlinx.coroutines.android) // Update to a newer version
     implementation (libs.jbcrypt)
-
-
     implementation (libs.androidx.core.ktx.v1100 )// Use the latest version
     implementation (libs.androidx.appcompat) // Use the latest version
     implementation (libs.material) // Use the latest version
     implementation (libs.androidx.constraintlayout )// Use the latest version
 
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core.ktx.v1100)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+        implementation(libs.retrofit)
+        implementation(libs.converter.gson)
+        implementation(libs.kotlin.stdlib)
 
-
+    implementation(libs.coil.compose)
+    implementation(libs.coil)
 
 
 
