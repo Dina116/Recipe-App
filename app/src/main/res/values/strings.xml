@@ -8,4 +8,6 @@
     <string name="creator">Creator</string>
     <string name="menu">menu</string>
     <string name="looking_for_ricpe">Looking For Ricpe?</string>
+    <string name="recipe_image">Recipe Image</string>
+    <string name="recipe_name">Recipe Name</string>
 </resources>

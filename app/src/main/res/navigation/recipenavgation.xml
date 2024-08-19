@@ -12,39 +12,41 @@
         tools:layout="@layout/fragment_home" >
 
         <action
-            android:id="@+id/action_homeFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_favFragment"
-            app:destination="@id/favFragment" />
+            app:destination="@id/favoritesFragment" />
         <action
             android:id="@+id/action_homeFragment_to_creatorFragment"
             app:destination="@id/creatorFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailsFragment"
-        android:name="com.training.recipeapp.fragments.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" >
         <action
-            android:id="@+id/action_detailsFragment_to_creatorFragment"
-            app:destination="@id/creatorFragment" />
+            android:id="@+id/action_homeFragment_to_recipeDetailFragment2"
+            app:destination="@id/recipeDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/favFragment"
+        android:id="@+id/favoritesFragment"
         android:name="com.training.recipeapp.fragments.FavFragment"
         android:label="fragment_fav"
         tools:layout="@layout/fragment_fav" >
         <action
-            android:id="@+id/action_favFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-        <action
             android:id="@+id/action_favFragment_to_creatorFragment"
             app:destination="@id/creatorFragment" />
+        <action
+            android:id="@+id/action_favFragment_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/creatorFragment"
         android:name="com.training.recipeapp.fragments.CreatorFragment"
         android:label="fragment_creator"
         tools:layout="@layout/fragment_creator" />
+    <fragment
+        android:id="@+id/recipeDetailFragment"
+        android:name="com.training.recipeapp.fragments.RecipeDetailFragment"
+        android:label="RecipeDetailFragment" >
+        <action
+            android:id="@+id/action_recipeDetailFragment_to_creatorFragment"
+            app:destination="@id/creatorFragment" />
+    </fragment>
+    <argument
+        android:name="RECIPE_ID"
+        app:argType="string" />
 </navigation>

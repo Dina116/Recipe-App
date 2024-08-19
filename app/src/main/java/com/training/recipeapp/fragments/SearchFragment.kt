@@ -1,65 +1,72 @@
 package com.training.recipeapp.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-
+import com.training.recipeapp.R
 import com.training.recipeapp.databinding.FragmentSearchBinding
-
-import com.training.recipeapp.mealadpter.mealadpter
-
+import com.training.recipeapp.mealadpter.Mealadpter
 import com.training.recipeapp.viewmodel.HomeViewModel
-
 
 class SearchFragment : Fragment() {
 
-private lateinit var binding:FragmentSearchBinding
-private lateinit var viewModel:HomeViewModel
-   private lateinit var SearchRecyclerviewadpter:mealadpter
+    private lateinit var binding: FragmentSearchBinding
+    private lateinit var viewModel: HomeViewModel
+    private lateinit var searchRecyclerviewAdapter: Mealadpter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel= ViewModelProvider(this).get(HomeViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
     }
-   override fun onCreateView(
+
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        binding=FragmentSearchBinding.inflate(inflater)
+        binding = FragmentSearchBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        preparRecyclerView()
-        binding.imgSearch.setOnClickListener{
-            searchmeals()
+        prepareRecyclerView()
+        binding.imgSearch.setOnClickListener {
+            searchMeals()
         }
-        observeSearchedMealsLiveDate()
+        observeSearchedMealsLiveData()
+    }
 
-    }
-    private fun observeSearchedMealsLiveDate(){
-        viewModel.observSearchedmealsLiveData().observe(viewLifecycleOwner) { mealslist ->
-            SearchRecyclerviewadpter.differ.submitList(mealslist)
+    private fun observeSearchedMealsLiveData() {
+        viewModel.observSearchedmealsLiveData().observe(viewLifecycleOwner) { mealsList ->
+            searchRecyclerviewAdapter.differ.submitList(mealsList)
         }
     }
-    private fun searchmeals(){
-        val searchQuery =binding.searchBox.text.toString()
-        if (searchQuery.isNotEmpty())
-        {
+
+    private fun searchMeals() {
+        val searchQuery = binding.searchBox.text.toString()
+        if (searchQuery.isNotEmpty()) {
             viewModel.searchMeals(searchQuery)
         }
     }
 
-    private fun preparRecyclerView(){
-        SearchRecyclerviewadpter=mealadpter()
+    private fun prepareRecyclerView() {
+        searchRecyclerviewAdapter = Mealadpter { meal ->
+            // Handle item click
+            val recipeDetailFragment = RecipeDetailFragment.newInstance(meal.idMeal)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, recipeDetailFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
         binding.rvSearchMeals.apply {
-            layoutManager=LinearLayoutManager(context)
-            adapter=SearchRecyclerviewadpter
+            layoutManager = LinearLayoutManager(context)
+            adapter = searchRecyclerviewAdapter
         }
     }
 }

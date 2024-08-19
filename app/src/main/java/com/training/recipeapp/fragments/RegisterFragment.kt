@@ -1,14 +1,11 @@
 package com.training.recipeapp.fragments
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -18,9 +15,7 @@ import com.training.recipeapp.R
 import com.training.recipeapp.data.User
 import com.training.recipeapp.data.UserRepository
 import com.training.recipeapp.data.UserViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.mindrot.jbcrypt.BCrypt
@@ -47,7 +42,6 @@ class RegisterFragment : Fragment() {
         val passwordEditText = view.findViewById<TextInputLayout>(R.id.etregister_password)
 
         registerButton.setOnClickListener {
-            val id=0
             val email = emailEditText.editText?.text.toString()
             val username = usernameEditText.editText?.text.toString()
             val password = passwordEditText.editText?.text.toString()
